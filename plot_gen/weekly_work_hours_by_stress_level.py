@@ -19,5 +19,3 @@ def get_weekly_work_hours_by_stress_level(df: pd.DataFrame):
         ax.text(bar.get_x() + bar.get_width() / 2, height, f"{height:.2f}", ha="center", va="bottom")
     plt.show()
     return fig
-
-get_weekly_work_hours_by_stress_level(df = pd.read_csv("archive/Mental_Health_Dataset.csv"))
