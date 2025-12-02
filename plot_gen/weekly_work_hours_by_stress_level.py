@@ -9,7 +9,7 @@ def get_weekly_work_hours_by_stress_level(df: pd.DataFrame):
     labels = ["Low", "Moderate", "High"]
     values = [work_stress_level_low, work_stress_level_moderate, work_stress_level_high]
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots() # Create local plot
     bars = plt.bar(labels, values, color=["skyblue", "orange", "salmon"])
     ax.set_xlabel("Stress Level")
     ax.set_ylabel("Average Work Hours per Week")
@@ -17,5 +17,4 @@ def get_weekly_work_hours_by_stress_level(df: pd.DataFrame):
     for bar in bars:
         height = bar.get_height()
         ax.text(bar.get_x() + bar.get_width() / 2, height, f"{height:.2f}", ha="center", va="bottom")
-    plt.show()
     return fig

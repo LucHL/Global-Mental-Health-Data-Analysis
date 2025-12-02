@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def get_social_interaction_by_screen_time(df: pd.DataFrame):
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots() # Create local plot
 
     sns.scatterplot(
         data=df,
@@ -11,7 +11,7 @@ def get_social_interaction_by_screen_time(df: pd.DataFrame):
         y="Social Interaction Score",
         hue="Stress Level",
         alpha=0.7,
-        ax=ax
+        ax=ax,
     )
     ax.set_title("Social Interaction vs. Screen Time")
     ax.set_xlabel("Screen Time per Day (Hours)")

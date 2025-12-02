@@ -29,5 +29,4 @@ def get_average_table(df: pd.DataFrame):
                 value = mode.iloc[0] if len(mode) > 0 else None
 
             result.loc[var_label, condition] = value
-
-    print(result)
+    return result

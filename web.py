@@ -24,12 +24,12 @@ def fig_to_base64(fig):
 
 df = pd.read_csv("archive/Mental_Health_Dataset.csv")
 
-get_average_table(df)
+print("DESCRIBE DATA:\n", df.describe(), "\n\n\n")
+print("AVERAGE TABLE:\n", get_average_table(df), "\n\n\n")
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP]) # Create app object to display plots and graphs on a website
 app.layout = dbc.Container([
     html.H1("Interactive Matplotlib with Dash", className="mb-2", style={"textAlign":"center", "padding-bottom": "32px"}),
-
     dbc.Row([
         dbc.Col([
             html.Img(src=fig_to_base64(get_country_participation(df)))
