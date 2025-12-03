@@ -9,7 +9,7 @@ def get_stress_level_by_sleep_hours(df: pd.DataFrame):
     labels = ["Low", "Moderate", "High"]
     values = [sleep_low, sleep_moderate, sleep_high]
 
-    fig, ax = plt.subplots() # Create local plot
+    fig, ax = plt.subplots()
 
     bars = plt.bar(labels, values, color=["skyblue", "orange", "salmon"])
     ax.set_xlabel("Stress Level")

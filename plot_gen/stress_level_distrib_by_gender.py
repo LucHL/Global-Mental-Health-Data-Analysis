@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def get_stress_level_distrib_by_gender(df: pd.DataFrame):
-    fig, ax = plt.subplots() # Create local plot
+    fig, ax = plt.subplots()
 
     sns.countplot(data=df, x="Stress Level", hue="Gender", palette="muted", ax=ax)
 

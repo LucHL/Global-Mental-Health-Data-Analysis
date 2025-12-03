@@ -24,10 +24,28 @@ def fig_to_base64(fig):
 
 df = pd.read_csv("archive/Mental_Health_Dataset.csv")
 
+# Drop fully empty columns
+empty_cols = [col for col in df.columns if df[col].isna().all()]
+if empty_cols:
+    df.drop(columns=empty_cols, inplace=True)
+    print(f"Dropped empty columns: {empty_cols}")
+
+# Drop duplicate rows
+dup_count = df.duplicated().sum()
+if dup_count > 0:
+    df.drop_duplicates(inplace=True)
+    print(f"Removed {dup_count} duplicate rows")
+
+# Remove rows containing NaN values
+nan_before = df.isna().sum().sum()
+if nan_before > 0:
+    df.dropna(inplace=True)
+    print(f"Removed {nan_before} missing (NaN) cells by dropping affected rows")
+
 print("DESCRIBE DATA:\n", df.describe(), "\n\n\n")
 print("AVERAGE TABLE:\n", get_average_table(df), "\n\n\n")
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP]) # Create app object to display plots and graphs on a website
+app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.layout = dbc.Container([
     html.H1("Interactive Matplotlib with Dash", className="mb-2", style={"textAlign":"center", "padding-bottom": "32px"}),
     dbc.Row([

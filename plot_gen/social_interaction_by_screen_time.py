@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def get_social_interaction_by_screen_time(df: pd.DataFrame):
-    fig, ax = plt.subplots() # Create local plot
+    fig, ax = plt.subplots()
 
     sns.scatterplot(
         data=df,

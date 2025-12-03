@@ -6,7 +6,7 @@ def get_age_participation(df: pd.DataFrame):
     top_countries = df["Country"].value_counts().nlargest(6).index
     filtered_df = df[df["Country"].isin(top_countries)]
 
-    fig, ax = plt.subplots() # Create local plot
+    fig, ax = plt.subplots()
     sns.barplot(data=filtered_df, x="Country", y="Age", ax=ax, hue="Country", palette="coolwarm")
 
     for container in ax.containers:
